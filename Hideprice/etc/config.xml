@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+ <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <dragun_hideprice>
+            <general>
+                <enabled>0</enabled>
+            </general>
+        </dragun_hideprice>
+        <dragun_hideprice>
+            <general>
+                <wording_hide_price>login first to see price</wording_hide_price>
+            </general>
+        </dragun_hideprice>
+    </default>
+</config>

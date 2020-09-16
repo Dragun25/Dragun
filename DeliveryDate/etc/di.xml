@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="dragun_save_delivery_date_in_quote" type="Dragun\DeliveryDate\Plugin\Checkout\Model\ShippingInformationManagement" sortOrder="1"/>
+    </type>
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="delivery_date" xsi:type="string">sales_order.delivery_date</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="dragun_checkout_layout_processor_add_delivery_block"
+                type="Dragun\DeliveryDate\Plugin\Checkout\Block\LayoutProcessor" sortOrder="1"/>
+    </type>
+    <preference for="Dragun\DeliveryDate\Api\ShopRepositoryInterface" type="Dragun\DeliveryDate\Model\ShopRepository"/>
+    <preference for="Dragun\DeliveryDate\Api\Data\ShopInterface" type="Dragun\DeliveryDate\Model\Data\Shop"/>
+    <preference for="Dragun\DeliveryDate\Api\Data\ShopSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <virtualType name="Dragun\DeliveryDate\Model\ResourceModel\Shop\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dragun_deliverydate_shop</argument>
+            <argument name="resourceModel" xsi:type="string">Dragun\DeliveryDate\Model\ResourceModel\Shop\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dragun_deliverydate_shop_listing_data_source" xsi:type="string">Dragun\DeliveryDate\Model\ResourceModel\Shop\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

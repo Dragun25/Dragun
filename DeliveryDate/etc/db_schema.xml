@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="dragun_deliverydate_shop Table" engine="innodb" name="dragun_deliverydate_shop" resource="default">
+		<column comment="Entity Id" identity="true" name="shop_id" nullable="false" padding="6" unsigned="true" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="shop_id"/>
+		</constraint>
+		<column length="255" name="title" nullable="false" xsi:type="varchar"/>
+		<column name="city" nullable="false" xsi:type="text"/>
+		<column length="255" name="adrus" nullable="false" xsi:type="varchar"/>
+		<column length="255" name="email" nullable="false" xsi:type="varchar"/>
+		<column identity="false" name="phone" nullable="false" xsi:type="int"/>
+		<column length="255" name="schedule" nullable="true" xsi:type="varchar"/>
+	</table>
+
+    <table comment="quote Table" engine="innodb" name="quote" resource="default">
+
+        <column name="delivery_date" comment="Delivery Date" xsi:type="date"/>
+        <column name="delivery_select" comment="Delivery Select" xsi:type="date"/>
+        <column name="delivery_text" comment="Delivery Text" xsi:type="date"/>
+
+    </table>
+    <table comment="sales_order Table" engine="innodb" name="sales_order" resource="default">
+
+        <column name="delivery_date" comment="Delivery Date"  xsi:type="date"/>
+        <column name="delivery_select" comment="Delivery Select" xsi:type="date"/>
+        <column name="delivery_text" comment="Delivery Text" xsi:type="date"/>
+
+    </table>
+    <table comment="sales_order_grid Table" engine="innodb" name="sales_order_grid" resource="default">
+
+        <column name="delivery_date" comment="Delivery Date"  xsi:type="date"/>
+        <column name="delivery_select" comment="Delivery Select" xsi:type="date"/>
+        <column name="delivery_text" comment="Delivery Text" xsi:type="date"/>
+
+    </table>
+
+</schema>

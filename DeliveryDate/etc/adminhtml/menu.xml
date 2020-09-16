@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Delivery::top_level"
+             module="Dragun_DeliveryDate"
+             resource="Magento_Backend::content"
+             sortOrder="9999"
+             title="Shop"/>
+		<add action="dragun_deliverydate/shop/index"
+             id="Dragun_DeliveryDate::dragun_deliverydate_shop"
+             module="Dragun_DeliveryDate"
+             parent="Delivery::top_level"
+             resource="Magento_Backend::content"
+             sortOrder="9999"
+             title="Shop"/>
+	</menu>
+</config>
