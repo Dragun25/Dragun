@@ -46,7 +46,8 @@ class Button extends Template
         } else {
             $result = null;
         }
-        return $result;
+        return $result; 
     }
-
+    
+//add test code
 }
